@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="assets/css/styling.css">
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
+      
+      h1,h2,h3,h4,h5 {font-family: 'Libre Baskerville', serif}
+      body {font-family: Tahoma, sans-serif;}
+
+      .body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.5;
+        margin-left: 15%;
+        margin-right: 15%;
+      }
+
+      /* Centre-aligns images in markdown (aka. images in body text) */
+      img[src*="#image"] { /* the *= checks if #image appears anywhere within src */
+        align-self: center;
+      }
+    </style>
+  </head>
+
+
+  {% if page.image != "" %}
+  <header>
+    <img src="{{- page.image | relative_url -}}" alt="" style="height: 100px; width: 100%; object-fit: cover; padding-bottom: 10px;">
+  </header>
+  {% endif %}
+
+  <div>
+    <body>
+      <h1 style="text-align: center;"><b>{{ page.title }}</b></h1>
+      <section class="body">
+        {{ content }}
+      </section>
+    </body>
+  </div>
+</html>

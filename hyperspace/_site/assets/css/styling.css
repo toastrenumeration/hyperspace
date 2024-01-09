@@ -1,0 +1,29 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
+
+title,h1,h2,h3,h4,h5 {font-family: 'Libre Baskerville', serif}
+body {font-family: Tahoma, sans-serif;}
+
+.hero-header {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+
+    /* Set a specific height */
+    height: 50%;
+    width: 100%;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #f1faff;
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <style>
+    h1,h2,h3,h4,h5 {font-family: 'Libre Baskerville', serif}
+
+    h3 {
+      font-size: large;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      float: right;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  
+    nav ul li {
+      margin-right: 50px;
+    }
+  
+    nav ul li a {
+      text-decoration: none;
+      font-weight: bold;
+    }
+  
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+  
+  <div style="width: 100%;">
+    <nav>
+        <ul>
+            <li><a href="/">
+                <h3>Home</h3>
+                </a>
+            </li>
+            <li><a href="/about/">
+                <h3>About</h3>
+                </a>
+            </li>
+        </ul>
+    </nav>
+  </div>
+
+    <!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="/assets/css/styling.css">
+
+        <style>
+            /* --- The hero image --- */
+            .hero-image {
+
+            /* Set a specific height */
+                max-height: 100vh;
+                width: 100%;
+                object-fit: cover;
+
+            /* Position and center the image to scale nicely on all screens */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+
+            }
+
+            /* --- CSS for blog post cards --- */
+            img {
+                height: auto;
+                max-width: 100%;
+                vertical-align: middle;
+            }
+
+            /* CSS for button on blog post cards */
+            .btn {
+                margin-top: 5px;
+                background-color: white;
+                border: 1.5px solid;
+                border-radius: 1rem;
+                padding: 0.5rem;
+                transition: 0.3s;
+            }
+
+            button:hover {
+                background-color: lightgrey;
+            }
+
+            .btn--block {
+                display: block;
+                width: 100%;
+            }
+ 
+            .cards {
+                display: flex;
+                flex-wrap: wrap;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* General CSS for blog post cards */
+            .cards__item {
+                display: flex;
+                padding: 1rem;
+
+                /* Changes between 2-column and 3-column layout depending on screen width */
+                @media(min-width: 40rem) {
+                    width: 50%;
+                }
+                @media(min-width: 56rem) {
+                    width: 33.3333%;
+                }
+            }
+
+            .card {
+                background-color: white;
+                border-radius: 0.25rem;
+                box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .card__content {
+                display: flex;
+                flex: 1 1 auto;
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .card__image {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-top-left-radius: 0.25rem;
+                border-top-right-radius: 0.25rem;
+                position: relative;
+                transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+                &::before {
+                    content: "";
+                    display: block;
+                    padding-top: 56.25%; /* 16:9 aspect ratio */
+                }
+                @media(min-width: 40rem) {
+                    &::before {
+                    padding-top: 66.6%; /* 3:2 aspect ratio */
+                    }
+                }
+            }
+
+            /* CSS for card title link hover */
+            .title__link:hover {
+                color: purple;
+            }
+        </style>
+    </head>
+    
+    <!-- insert default contents eg. hero header, include nav bar (leaves posts to specifically home layout) -->
+
+    <!-- Hero Header -> needs to include title text from specific page -->
+    <div class="hero-header">
+        <img src="/assets/images/hero_header.webp" class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size: 75px;">Hyperspace</h1>
+        </div>
+    </div>
+
+    <!-- Blog Cards -->
+    <div style="margin-left: 2%; margin-right: 2%;">
+        <ul class="cards">
+    
+            
+
+                <li class="cards__item">
+                    
+                    <div class="card">
+                            <!-- Let image alternative be placeholder -->
+                            
+                            <img src="/assets/images/lynch_syndrome_ihc.PNG" alt="image">
+                            
+        
+                        <div class="card__content">
+                            <a class="title__link" href="/jekyll/update/2023/12/12/immunohistochemistry.html" style="text-decoration: none;">
+                                <h2>Screening for Cancer with Immunostaining!</h2>
+                            </a>
+
+                            <p>Immunohistochemistry (IHC) is a staining technique which produces stunning pictures that can reveal the presence of an ugly disease.</p>
+
+                            <a href="/jekyll/update/2023/12/12/immunohistochemistry.html" style="text-decoration: none;">
+                                <button class="btn btn--block card__btn">
+                                    Read More
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                </li>
+
+            
+
+                <li class="cards__item">
+                    
+                    <div class="card">
+                            <!-- Let image alternative be placeholder -->
+                            
+                            <div class="card__image" style="background-color: #A9CCE3;"></div>
+                            
+        
+                        <div class="card__content">
+                            <a class="title__link" href="/jekyll/update/2023/11/29/welcome-to-jekyll.html" style="text-decoration: none;">
+                                <h2>Welcome to Jekyll!</h2>
+                            </a>
+
+                            <p>Have you ever wondered what the inner workings of Jekyll looked like? Well, here's a handy description of Jekyll posts to answer your question.</p>
+
+                            <a href="/jekyll/update/2023/11/29/welcome-to-jekyll.html" style="text-decoration: none;">
+                                <button class="btn btn--block card__btn">
+                                    Read More
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                </li>
+
+            
+    
+        </ul>
+    </div>
+</html>
+</html>

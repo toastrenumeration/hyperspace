@@ -1,0 +1,165 @@
+---
+layout: default
+hero-image: "/assets/images/hero_header.JPG"
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="/assets/css/styling.css">
+
+        <style>
+            /* --- The hero image --- */
+            .hero-image {
+
+            /* Set a specific height */
+                max-height: 100vh;
+                width: 100%;
+                object-fit: cover;
+
+            /* Position and center the image to scale nicely on all screens */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+
+            }
+
+            /* --- CSS for blog post cards --- */
+            img {
+                height: auto;
+                max-width: 100%;
+                vertical-align: middle;
+            }
+
+            /* CSS for button on blog post cards */
+            .btn {
+                margin-top: 5px;
+                background-color: white;
+                border: 1.5px solid;
+                border-radius: 1rem;
+                padding: 0.5rem;
+                transition: 0.3s;
+            }
+
+            button:hover {
+                background-color: lightgrey;
+            }
+
+            .btn--block {
+                display: block;
+                width: 100%;
+            }
+ 
+            .cards {
+                display: flex;
+                flex-wrap: wrap;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* General CSS for blog post cards */
+            .cards__item {
+                display: flex;
+                padding: 1rem;
+
+                /* Changes between 2-column and 3-column layout depending on screen width */
+                @media(min-width: 40rem) {
+                    width: 50%;
+                }
+                @media(min-width: 56rem) {
+                    width: 33.3333%;
+                }
+            }
+
+            .card {
+                background-color: white;
+                border-radius: 0.25rem;
+                box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .card__content {
+                display: flex;
+                flex: 1 1 auto;
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .card__image {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-top-left-radius: 0.25rem;
+                border-top-right-radius: 0.25rem;
+                position: relative;
+                transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+                &::before {
+                    content: "";
+                    display: block;
+                    padding-top: 56.25%; /* 16:9 aspect ratio */
+                }
+                @media(min-width: 40rem) {
+                    &::before {
+                    padding-top: 66.6%; /* 3:2 aspect ratio */
+                    }
+                }
+            }
+
+            /* CSS for card title link hover */
+            .title__link:hover {
+                color: purple;
+            }
+        </style>
+    </head>
+    
+    <!-- insert default contents eg. hero header, include nav bar (leaves posts to specifically home layout) -->
+
+    <!-- Hero Header -> needs to include title text from specific page -->
+    <div class="hero-header">
+        <img src="/assets/images/hero_header.webp" class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size: 75px;">Hyperspace</h1>
+        </div>
+    </div>
+
+    <!-- Blog Cards -->
+    <div style="margin-left: 2%; margin-right: 2%;">
+        <ul class="cards">
+    
+            {% for post in site.posts %}
+
+                <li class="cards__item">
+                    
+                    <div class="card">
+                            <!-- Let image alternative be placeholder -->
+                            {% if post.image != "" %}
+                            <img src="{{- post.image | relative_url -}}" alt="image">
+                            {% else %}
+                            <div class="card__image" style="background-color: #A9CCE3;"></div>
+                            {% endif %}
+        
+                        <div class="card__content">
+                            <a class="title__link" href="{{ post.url }}" style="text-decoration: none;">
+                                <h2>{{ post.title }}</h2>
+                            </a>
+
+                            <p>{{ post.intro }}</p>
+
+                            <a href="{{ post.url }}" style="text-decoration: none;">
+                                <button class="btn btn--block card__btn">
+                                    Read More
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                </li>
+
+            {% endfor %}
+    
+        </ul>
+    </div>
+</html>
